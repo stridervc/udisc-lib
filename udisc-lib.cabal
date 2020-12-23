@@ -1,0 +1,50 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: df1d9f81840e8c5a2a302d70a2f6ef7432397d9764639b608a759dca2a77a643
+
+name:           udisc-lib
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/stridervc/udisc-lib#readme>
+homepage:       https://github.com/stridervc/udisc-lib#readme
+bug-reports:    https://github.com/stridervc/udisc-lib/issues
+author:         Fred Strauss
+maintainer:     fred@strider.co.za
+copyright:      2020 Fred Strauss &lt;fred@strider.co.za&gt;
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/stridervc/udisc-lib
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_udisc_lib
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite udisc-lib-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_udisc_lib
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , udisc-lib
+  default-language: Haskell2010
