@@ -24,9 +24,13 @@ module Scorecard
   ) where
 
 import qualified Data.Text as T
+import qualified Data.ByteString.Lazy as BL
+import qualified Data.Vector as V
+
 import Data.Csv hiding (lookup)
 import Data.Time
 import Data.List (nub, sort, sortOn, lookup, intersect)
+import System.Directory.Extra (listFiles)
 
 type Course       = T.Text
 type Layout       = T.Text
@@ -232,3 +236,15 @@ rowsToCard rows = Scorecard
         locale  = defaultTimeLocale
         ps      = snd $ rowToPlayer info
         players = map rowToPlayer $ tail rows
+
+readCSVFile :: FilePath -> IO Scorecard
+readCSVFile f = do
+  csvdata <- BL.readFile f
+  case decodeByName csvdata of
+    Left err    -> error err
+    Right (_,v) -> return $ rowsToCard $ V.toList v
+
+readCSVDir :: FilePath -> IO [Scorecard]
+readCSVDir dir = do
+  files <- listFiles dir
+  mapM readCSVFile files

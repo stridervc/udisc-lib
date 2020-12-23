@@ -28,6 +28,9 @@ library:
   - text
   - cassava
   - time
+  - bytestring
+  - vector
+  - extra
 
 tests:
   udisc-lib-test:
