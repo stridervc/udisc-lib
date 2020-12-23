@@ -1,10 +1,10 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 
-{- | ... Module UDisc-Scorecard
- -
- - Haskell library to parse UDisc CSV files
- -}
+{- | Module UDisc-Scorecard
+
+Haskell library to parse UDisc CSV files
+-}
 
 module Scorecard
   ( Scorecard (..)
@@ -19,7 +19,6 @@ module Scorecard
   , layouts
   , allPlayers
   , courseLayoutStats
-  , applyAliases
   , timesPlayed
   , cardsForLayout
   ) where
@@ -60,7 +59,7 @@ data HoleStats = HoleStats
   , triples :: Count
   } deriving (Eq, Show)
 
--- | Get 'CourseLayout' from 'ScoreCard'
+-- | Get 'CourseLayout' from 'Scorecard'
 courseLayout :: Scorecard -> CourseLayout
 courseLayout sc = (course sc, layout sc)
 
@@ -233,22 +232,3 @@ rowsToCard rows = Scorecard
         locale  = defaultTimeLocale
         ps      = snd $ rowToPlayer info
         players = map rowToPlayer $ tail rows
-
-playerAlias :: [[T.Text]] -> T.Text -> T.Text
-playerAlias as p
-  | hasalias  = alias
-  | otherwise = p
-  where potential = concat $ [a | a <- as, p `elem` a]
-        hasalias  = not $ null potential
-        alias     = head potential
-
--- apply aliases to a score card
-applyCardAliases :: [[T.Text]] -> Scorecard -> Scorecard
-applyCardAliases as sc = sc { playerscores = ps' }
-  where ps  = playerscores sc
-        ps' = [(playerAlias as p, s) | (p,s) <- ps]
-
--- apply player aliases to score cards
-applyAliases :: [[T.Text]] -> Scorecards -> Scorecards
-applyAliases _ [] = []
-applyAliases as scs = map (applyCardAliases as) scs
