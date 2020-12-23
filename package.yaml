@@ -24,8 +24,10 @@ dependencies:
 
 library:
   source-dirs: src
-#  dependencies:
-#  - text
+  dependencies:
+  - text
+  - cassava
+  - time
 
 tests:
   udisc-lib-test:

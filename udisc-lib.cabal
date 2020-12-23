@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: df1d9f81840e8c5a2a302d70a2f6ef7432397d9764639b608a759dca2a77a643
+-- hash: 02f4a3b811ef8a4261cafc7191afe8b248d9a65dd5c359f0877539b618f7a8bd
 
 name:           udisc-lib
 version:        0.1.0.0
@@ -27,13 +27,16 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      Scorecard
   other-modules:
       Paths_udisc_lib
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
+    , cassava
+    , text
+    , time
   default-language: Haskell2010
 
 test-suite udisc-lib-test
