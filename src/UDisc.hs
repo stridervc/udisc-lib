@@ -21,6 +21,8 @@ module UDisc
   , courseLayoutStats
   , timesPlayed
   , cardsForLayout
+  , readCSVFile
+  , readCSVDir
   ) where
 
 import qualified Data.Text as T
