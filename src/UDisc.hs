@@ -1,12 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 
-{- | Module UDisc-Scorecard
+{- | Module UDisc
 
 Haskell library to parse UDisc CSV files
 -}
 
-module Scorecard
+module UDisc
   ( Scorecard (..)
   , Scorecards
   , PlayerScore (..)

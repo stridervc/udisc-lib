@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 9169d7ac26fc51b39b04ba07f3a33ec5860484fafecc3e2c6629a73ca2699377
+-- hash: 0bab5db95dbb561a037cc8ac91fd59a914e81fd447d9e35a54a3dc65e4c4d9d6
 
 name:           udisc-lib
 version:        0.1.0.0
@@ -27,7 +27,7 @@ source-repository head
 
 library
   exposed-modules:
-      Scorecard
+      UDisc
   other-modules:
       Paths_udisc_lib
   hs-source-dirs:
