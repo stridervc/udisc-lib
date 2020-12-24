@@ -23,6 +23,13 @@ module UDisc
   , cardsForLayout
   , readCSVFile
   , readCSVDir
+  , Course
+  , Layout
+  , Player
+  , Score
+  , Par
+  , Count
+  , Average
   ) where
 
 import qualified Data.Text as T
